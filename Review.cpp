@@ -7,9 +7,6 @@ class Student {
     public:
     Student();
     virtual ~Student();
-
-    
-
     void Format(){
     cout << "Name: " << GetFirstName() << " " << GetMiddleName() << " " << GetLastName() << "\n";
     cout << "Year Level: " << GetYearLevel() << "\n";
