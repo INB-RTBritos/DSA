@@ -1,5 +1,10 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
+
+#define MenuSplitter() cout << setw(90) << setfill('-') << " \n\n";
+#define MenuSplitter2() cout << setw(16) << setfill(' ') << " " << setw(90) << setfill('-') << " \n\n";
+
 
 class Array1D {
     private:
@@ -73,6 +78,7 @@ void Array1D::AddItem(int val) {
         cout << "Array is full" << endl;
         return;
     }
+
     array[size] = val;
     size++;
 }
@@ -112,5 +118,5 @@ void Array1D::DisplayElements() {
     for (int i = 0; i < size; i++) {
         cout << "Element # " << i + 1 << " is " << array[i] << endl << endl;
     }
-    cout << "-----------------------------------------------------------------" << endl;
+    MenuSplitter();
 }
