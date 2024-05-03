@@ -7,6 +7,7 @@ class Student {
     public:
     Student();
     virtual ~Student();
+    
     void Format(){
     cout << "Name: " << GetFirstName() << " " << GetMiddleName() << " " << GetLastName() << "\n";
     cout << "Year Level: " << GetYearLevel() << "\n";
@@ -195,7 +196,6 @@ void Student::RemoveAStudent(Record*& head) {
     
     bool found = false;
 
-    // Traverse the linked list to find the node with matching last name
     while (temp) {
         if (temp->student->GetLastName() == searchLastName) {
             found = true;
