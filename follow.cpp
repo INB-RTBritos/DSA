@@ -2,24 +2,24 @@
 using namespace std;
 
 int main() {
-    int *ptr1, *ptr2;
+    string *names;
+    int size;
 
-    ptr1 = new int;
+    cout << "How many name?: ";
+    cin >> size;
+    cin.ignore();
     
+    names = new string[size];
 
-    *ptr1 = 25;
+    for (int i = 0; i < size; i++) {
+        cout << "Enter name # " << i + 1 << ": ";
+        getline(cin, names[i]);
+    }
 
-    cout << "Address pointed in ptr 1 " << ptr1 << endl;
-    cout << "value in ptr 1 " << *ptr1 << endl;
+    cout << "\n\nNames:\n" << endl;
 
-    ptr2 = ptr1;
-    
-    cout << "Address pointed in ptr 2 " << ptr2 << endl;
-    cout << "value in ptr 2 " << *ptr2 << endl;
-
-    ptr1 = new int;
-
-    *ptr1 = 23;
-    cout << "Address pointed in ptr 1 " << ptr1 << endl;
-    cout << "value in ptr 1 " << *ptr1 << endl;
+    for (int j=0; j < size; j++) {
+        cout << names[j] << endl;
+    }
 }
+    
