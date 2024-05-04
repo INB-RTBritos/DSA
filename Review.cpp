@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cctype>
 using namespace std;
 
 struct Record;
@@ -18,23 +20,32 @@ class Student {
     }
     void SetLastName() {
         cout << "Enter Last Name: ";
-        cin >> lastName;
+        getline(cin, lastName);
+        for (char &characters : lastName) 
+            characters = toupper(characters);
     }
     void SetFirstName(){
         cout << "Enter First Name: ";
-        cin >> firstName;
+        getline(cin, firstName);
+        for (char &characters : firstName)
+            characters = toupper(characters);
     }
     void SetMiddleName(){
         cout << "Enter Middle Name: ";
-        cin >> middleName;
+        getline(cin, middleName);
+        for (char &characters : middleName)
+            characters = toupper(characters);
     }
     void SetYearLevel() {
         cout << "Enter Year Level: ";
         cin >> yearLevel;
+        cin.ignore();
     }
     void SetCourse() {
         cout << "Enter Course: ";
-        cin >> course;
+        getline(cin, course);
+        for (char &characters : course)
+            characters = toupper(characters);
     }
     string GetLastName() {
         return lastName;
@@ -127,7 +138,9 @@ int MainMenu() {
     cout << "[6] Exit\n\n";
     cout << ":: ";
     cin >> choice;
+    cin.ignore();
     } while (choice < 0 || choice > 6);
+    system("cls");
     return choice;
 }
 
@@ -172,6 +185,9 @@ void Student::SearchStudent(Record*& head) {
 
     cout << "Enter the last name of the student you want to search for: ";
     cin >> searchLastName;
+    for (char &characters : searchLastName)
+            characters= toupper(characters);
+    
 
 
     while (temp) {
@@ -189,12 +205,15 @@ void Student::SearchStudent(Record*& head) {
 
 void Student::RemoveAStudent(Record*& head) {
     string searchLastName;
+    bool found = false;
     Record* temp = head;
     Record* prev = NULL;
+
     cout << "Enter the last name of the student you want to remove: ";
     cin >> searchLastName;
+    for (char &characters : searchLastName)
+            characters = toupper(characters);
     
-    bool found = false;
 
     while (temp) {
         if (temp->student->GetLastName() == searchLastName) {
