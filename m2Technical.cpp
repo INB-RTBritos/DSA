@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 int Menu();
@@ -6,6 +7,7 @@ void InputString(int, char*, char*);
 void StringLength(char*);
 void StringCompare(char*, char*);
 void StringConcatenate(char*, char*);
+char EndTrail();
 
 int main() {
     int choice;
@@ -30,7 +32,7 @@ int main() {
             default:
             return 0;
         }
-    } while(true);
+    } while(EndTrail() == 'Y');
 }
 
 int Menu() {
@@ -111,4 +113,12 @@ void StringConcatenate(char* s1, char* s2) {
     cout << "\nThe concatenated string:\n" << s1 << "\n\n";
 }
 
+char EndTrail() {
+    char continueChoice;
+
+    cout << "Do you want to Continue [Y/N]: ";
+    cin >> continueChoice;
+    continueChoice = toupper(continueChoice);
+    return continueChoice;
+}
 
