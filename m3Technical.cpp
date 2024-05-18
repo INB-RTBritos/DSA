@@ -148,6 +148,7 @@ void LinkedList::InsertAtPosition(int val) {
         cout << "Invalid Position";
         return;
     } 
+
     temp = head;
     for (int index = 1; index < position - 1; index++) {
         if (!temp){
@@ -170,6 +171,7 @@ void LinkedList::InsertAtPosition(int val) {
         newNode->next = temp->next;
         temp->next = newNode;
     }
+
     size = GetSize() + 1;
 
 }
@@ -191,6 +193,7 @@ void LinkedList::InsertAtEnd(int val) {
         temp = temp->next;
     }
     temp->next = newNode;
+    size = GetSize() + 1;
 }
 
 void LinkedList::RemoveAt() {
