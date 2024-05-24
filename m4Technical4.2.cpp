@@ -24,7 +24,7 @@ public:
     }
 
     T pop() {
-        if (top < 0) {
+        if (top == -1) {
             cout << "Stack is empty\n";
             return -1; 
         }
