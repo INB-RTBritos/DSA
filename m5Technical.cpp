@@ -69,13 +69,11 @@ class Queue {
     }
 
     int GetFront() {
-        int x;
         if (isEmpty()) {
             cout << "Error: Queue is empty!\n";
             return -1;
         }
-        x = arr[front];
-        return x;
+        return arr[front];
     }
 };
 
