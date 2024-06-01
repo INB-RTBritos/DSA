@@ -59,12 +59,15 @@ class Queue {
         return size;
     }
     void DisplayQueue() {
+        int i;
         if (isEmpty()){
             cout << "Error: Queue is empty!\n";
             return;
         }
-        for (int i = front; i <= rear; i++) {
-            cout<<arr[i]<<"\n";
+        i = front;
+        while (i <= rear) {
+            cout << arr[i] <<"\n";
+            i++;
         }
     }
 
